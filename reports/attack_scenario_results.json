@@ -1,0 +1,45 @@
+[
+    {
+        "scenario": "Normal authorized start",
+        "type": "ML",
+        "expected": "NORMAL",
+        "predicted": "NORMAL",
+        "passed": true,
+        "return_code": 0,
+        "output": "========== SMART FACTORY IDS ==========\n\nInput data:\ntick: 100\nconveyor_speed: 1.0\nconveyor_state: RUNNING\ntemperature_c: 25.0\nitem_present: 1\nmachine_fault: 0\ncommand: START\nauthorized: 1\n\n========== DETECTION RESULT ==========\nStatus: NORMAL\nAlert: No attack detected by the model.\nAttack probability: 5.20%"
+    },
+    {
+        "scenario": "Unauthorized command",
+        "type": "ML",
+        "expected": "ATTACK DETECTED",
+        "predicted": "ATTACK DETECTED",
+        "passed": true,
+        "return_code": 0,
+        "output": "========== SMART FACTORY IDS ==========\n\nInput data:\ntick: 100\nconveyor_speed: 1.0\nconveyor_state: RUNNING\ntemperature_c: 25.0\nitem_present: 1\nmachine_fault: 0\ncommand: UNAUTHORIZED\nauthorized: 0\n\n========== DETECTION RESULT ==========\nStatus: ATTACK DETECTED\nAlert: Suspicious industrial activity detected.\nAttack probability: 85.73%"
+    },
+    {
+        "scenario": "Unauthorized stop command",
+        "type": "ML",
+        "expected": "ATTACK DETECTED",
+        "predicted": "ATTACK DETECTED",
+        "passed": true,
+        "return_code": 0,
+        "output": "========== SMART FACTORY IDS ==========\n\nInput data:\ntick: 100\nconveyor_speed: 1.0\nconveyor_state: RUNNING\ntemperature_c: 25.0\nitem_present: 1\nmachine_fault: 0\ncommand: STOP\nauthorized: 0\n\n========== DETECTION RESULT ==========\nStatus: ATTACK DETECTED\nAlert: Suspicious industrial activity detected.\nAttack probability: 93.45%"
+    },
+    {
+        "scenario": "Normal conveyor stopped (dataset-supported)",
+        "type": "ML",
+        "expected": "NORMAL",
+        "predicted": "NORMAL",
+        "passed": true,
+        "return_code": 0,
+        "output": "========== SMART FACTORY IDS ==========\n\nInput data:\ntick: 100\nconveyor_speed: 1.0\nconveyor_state: STOPPED\ntemperature_c: 25.0\nitem_present: 1\nmachine_fault: 0\ncommand: STOP\nauthorized: 1\n\n========== DETECTION RESULT ==========\nStatus: NORMAL\nAlert: No attack detected by the model.\nAttack probability: 7.00%"
+    },
+    {
+        "scenario": "Authorized command rejected",
+        "type": "GATEWAY",
+        "expected": "GATEWAY VALIDATION REQUIRED",
+        "predicted": "NOT EVALUATED BY ML",
+        "status": "REQUIRES GATEWAY TEST"
+    }
+]

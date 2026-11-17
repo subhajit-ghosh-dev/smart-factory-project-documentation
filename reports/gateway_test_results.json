@@ -1,0 +1,66 @@
+[
+    {
+        "scenario": "Unauthorized command",
+        "type": "GATEWAY",
+        "accepted": false,
+        "reason": "UNAUTHORIZED",
+        "passed": true,
+        "status": "PASSED"
+    },
+    {
+        "scenario": "Replay attack",
+        "type": "GATEWAY",
+        "first_command_accepted": true,
+        "second_command_accepted": false,
+        "reason": "REPLAYED_COMMAND",
+        "passed": true,
+        "status": "PASSED"
+    },
+    {
+        "scenario": "Command flooding",
+        "type": "GATEWAY",
+        "accepted_commands": 3,
+        "fourth_command_reason": "RATE_LIMITED",
+        "passed": true,
+        "status": "PASSED"
+    },
+    {
+        "scenario": "Unknown command",
+        "type": "GATEWAY",
+        "accepted": false,
+        "reason": "UNKNOWN_COMMAND",
+        "passed": true,
+        "status": "PASSED"
+    },
+    {
+        "scenario": "Setpoint manipulation",
+        "type": "GATEWAY",
+        "accepted": false,
+        "reason": "INVALID_SPEED",
+        "requested_speed": 5.0,
+        "allowed_speed_range": [
+            0.0,
+            1.5
+        ],
+        "passed": true,
+        "status": "PASSED"
+    },
+    {
+        "scenario": "Valid SET_SPEED command",
+        "type": "GATEWAY",
+        "accepted": true,
+        "reason": "OK",
+        "actual_speed_setpoint": 1.2,
+        "passed": true,
+        "status": "PASSED"
+    },
+    {
+        "scenario": "Machine fault protection",
+        "type": "GATEWAY",
+        "accepted": false,
+        "reason": "MACHINE_FAULT",
+        "conveyor_state": "FAULT",
+        "passed": true,
+        "status": "PASSED"
+    }
+]

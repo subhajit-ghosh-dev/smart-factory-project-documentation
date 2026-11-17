@@ -1,0 +1,127 @@
+﻿{
+    "target":  "label",
+    "initial_rows":  450,
+    "rows_after_exact_deduplication":  204,
+    "exact_duplicate_records_removed":  246,
+    "usable_rows":  204,
+    "features_used":  [
+                          "tick",
+                          "conveyor_speed",
+                          "conveyor_state",
+                          "temperature_c",
+                          "item_present",
+                          "machine_fault",
+                          "command",
+                          "authorized"
+                      ],
+    "excluded_columns":  [
+                             "label",
+                             "attack_type",
+                             "command_accepted"
+                         ],
+    "duplicate_feature_rows":  39,
+    "conflicting_feature_groups":  14,
+    "unique_feature_groups":  165,
+    "class_distribution":  {
+                               "0":  66,
+                               "1":  138
+                           },
+    "stratified_cross_validation":  {
+                                        "accuracy":  {
+                                                         "mean":  0.8236585365853658,
+                                                         "std":  0.03527406085812861,
+                                                         "fold_scores":  [
+                                                                             0.8048780487804879,
+                                                                             0.7804878048780488,
+                                                                             0.8780487804878049,
+                                                                             0.8048780487804879,
+                                                                             0.85
+                                                                         ]
+                                                     },
+                                        "precision":  {
+                                                          "mean":  0.8793335866628897,
+                                                          "std":  0.049110344779758744,
+                                                          "fold_scores":  [
+                                                                              0.8571428571428571,
+                                                                              0.88,
+                                                                              0.896551724137931,
+                                                                              0.8064516129032258,
+                                                                              0.9565217391304348
+                                                                          ]
+                                                      },
+                                        "recall":  {
+                                                       "mean":  0.8624338624338623,
+                                                       "std":  0.05759666946316732,
+                                                       "fold_scores":  [
+                                                                           0.8571428571428571,
+                                                                           0.7857142857142857,
+                                                                           0.9285714285714286,
+                                                                           0.9259259259259259,
+                                                                           0.8148148148148148
+                                                                       ]
+                                                   },
+                                        "f1":  {
+                                                   "mean":  0.8683362407319534,
+                                                   "std":  0.027154984651013604,
+                                                   "fold_scores":  [
+                                                                       0.8571428571428571,
+                                                                       0.8301886792452831,
+                                                                       0.9122807017543859,
+                                                                       0.8620689655172413,
+                                                                       0.88
+                                                                   ]
+                                               }
+                                    },
+    "grouped_cross_validation":  {
+                                     "accuracy":  {
+                                                      "mean":  0.8575609756097562,
+                                                      "std":  0.06142468776076951,
+                                                      "fold_scores":  [
+                                                                          0.8780487804878049,
+                                                                          0.7804878048780488,
+                                                                          0.8780487804878049,
+                                                                          0.9512195121951219,
+                                                                          0.8
+                                                                      ]
+                                                  },
+                                     "precision":  {
+                                                       "mean":  0.934675121771896,
+                                                       "std":  0.03626414083723637,
+                                                       "fold_scores":  [
+                                                                           1.0,
+                                                                           0.9259259259259259,
+                                                                           0.9230769230769231,
+                                                                           0.9354838709677419,
+                                                                           0.8888888888888888
+                                                                       ]
+                                                   },
+                                     "recall":  {
+                                                    "mean":  0.8437680375180376,
+                                                    "std":  0.09425818945727318,
+                                                    "fold_scores":  [
+                                                                        0.8214285714285714,
+                                                                        0.78125,
+                                                                        0.8888888888888888,
+                                                                        1.0,
+                                                                        0.7272727272727273
+                                                                    ]
+                                                },
+                                     "f1":  {
+                                                "mean":  0.8843490910915053,
+                                                "std":  0.056597305927231854,
+                                                "fold_scores":  [
+                                                                    0.9019607843137255,
+                                                                    0.847457627118644,
+                                                                    0.9056603773584906,
+                                                                    0.9666666666666667,
+                                                                    0.8
+                                                                ]
+                                            }
+                                 },
+    "limitations":  [
+                        "The dataset is synthetic and does not establish real-world detection performance.",
+                        "Cross-validation results are estimates on this dataset.",
+                        "Grouped validation keeps identical feature rows in the same fold.",
+                        "Conflicting labels for identical feature rows may limit reliable classification."
+                    ]
+}

@@ -1,0 +1,101 @@
+{
+    "total_scenarios": 5,
+    "gateway_rejections": 4,
+    "ml_inferences": 5,
+    "replay_first_command_accepted": true,
+    "replay_second_command_rejected": true,
+    "all_ml_inferences_completed": true,
+    "results": [
+        {
+            "scenario": "Normal authorized command",
+            "gateway_accepted": true,
+            "gateway_reason": "OK",
+            "ml_inference_ran": true,
+            "ml_prediction": "NORMAL",
+            "attack_probability": 0.01,
+            "input_features_logged": [
+                "tick",
+                "conveyor_speed",
+                "conveyor_state",
+                "temperature_c",
+                "item_present",
+                "machine_fault",
+                "command",
+                "authorized"
+            ]
+        },
+        {
+            "scenario": "Unauthorized command",
+            "gateway_accepted": false,
+            "gateway_reason": "UNAUTHORIZED",
+            "ml_inference_ran": true,
+            "ml_prediction": "ATTACK DETECTED",
+            "attack_probability": 1.0,
+            "input_features_logged": [
+                "tick",
+                "conveyor_speed",
+                "conveyor_state",
+                "temperature_c",
+                "item_present",
+                "machine_fault",
+                "command",
+                "authorized"
+            ]
+        },
+        {
+            "scenario": "Replay attack",
+            "first_command_accepted": true,
+            "gateway_accepted": false,
+            "gateway_reason": "REPLAYED_COMMAND",
+            "ml_inference_ran": true,
+            "ml_prediction": "NORMAL",
+            "attack_probability": 0.02,
+            "input_features_logged": [
+                "tick",
+                "conveyor_speed",
+                "conveyor_state",
+                "temperature_c",
+                "item_present",
+                "machine_fault",
+                "command",
+                "authorized"
+            ]
+        },
+        {
+            "scenario": "Command flooding",
+            "gateway_accepted": false,
+            "gateway_reason": "RATE_LIMITED",
+            "ml_inference_ran": true,
+            "ml_prediction": "ATTACK DETECTED",
+            "attack_probability": 1.0,
+            "input_features_logged": [
+                "tick",
+                "conveyor_speed",
+                "conveyor_state",
+                "temperature_c",
+                "item_present",
+                "machine_fault",
+                "command",
+                "authorized"
+            ]
+        },
+        {
+            "scenario": "Setpoint manipulation",
+            "gateway_accepted": false,
+            "gateway_reason": "INVALID_SPEED",
+            "ml_inference_ran": true,
+            "ml_prediction": "ATTACK DETECTED",
+            "attack_probability": 0.8,
+            "input_features_logged": [
+                "tick",
+                "conveyor_speed",
+                "conveyor_state",
+                "temperature_c",
+                "item_present",
+                "machine_fault",
+                "command",
+                "authorized"
+            ]
+        }
+    ]
+}
